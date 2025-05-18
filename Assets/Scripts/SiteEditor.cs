@@ -21,7 +21,7 @@ public class SiteEditor : MonoBehaviour
         finishButton.onClick.AddListener(OnFinishGame);
 
         // Seçilen senaryoyu al
-        var scenario = ScenarioManager.Instance?.selectedScenario;
+        var scenario = GameData.siteAIsPlaying ? GameData.siteAScenario : GameData.siteBScenario;
         if (scenario == null)
         {
             Debug.LogError("Senaryo bulunamadı!");

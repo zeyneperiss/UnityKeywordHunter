@@ -10,13 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5d1a48b79244242aaa3149ee208178b5, type: 3}
-  m_Name: SampleScenarioA
+  m_Name: Scenario_YazilimSitesi
   m_EditorClassIdentifier: 
-  title: Kahve Blogu
+  title: "Yaz\u0131l\u0131m Blog"
   keywords:
-  - text: arabica
+  - text: .NET Core
     correctDropArea: Drop_Title
-  - text: filtre kahve
+  - text: performans
     correctDropArea: Drop_Content
-  - text: demleme
+  - text: programlamla
+    correctDropArea: Drop_H1
+  - text: "yaz\u0131l\u0131m geli\u015Ftir\xF6e"
     correctDropArea: Drop_Meta

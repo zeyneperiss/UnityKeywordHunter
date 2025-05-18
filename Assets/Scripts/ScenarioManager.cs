@@ -1,18 +1,15 @@
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class ScenarioManager : MonoBehaviour
 {
     public static ScenarioManager Instance;
 
-    public List<SEOScenario> scenarios;
-
-    [HideInInspector]
-    public SEOScenario selectedScenario;
+    public List<SEOScenario> allScenarios;
 
     private void Awake()
     {
-        // Singleton setup
+        // Singleton pattern
         if (Instance == null)
         {
             Instance = this;
@@ -24,18 +21,34 @@ public class ScenarioManager : MonoBehaviour
             return;
         }
 
-        SelectRandomScenario();
+        // JSON'dan senaryoları yükle
+        allScenarios = JsonScenarioLoader.LoadScenariosFromJson();
+
+        if (allScenarios.Count < 2)
+        {
+            Debug.LogError("En az 2 senaryo JSON'dan yüklenmiş olmalı!");
+        }
+        else
+        {
+            SelectTwoUniqueScenarios();
+        }
     }
 
-    public void SelectRandomScenario()
+    private void SelectTwoUniqueScenarios()
     {
-        if (scenarios == null || scenarios.Count == 0)
-        {
-            Debug.LogError("Senaryo bulunamadı!");
-            return;
-        }
+        int indexA = Random.Range(0, allScenarios.Count);
+        int indexB;
 
-        selectedScenario = scenarios[Random.Range(0, scenarios.Count)];
-        Debug.Log("Seçilen senaryo: " + selectedScenario.title);
+        do
+        {
+            indexB = Random.Range(0, allScenarios.Count);
+        }
+        while (indexB == indexA);
+
+        GameData.siteAScenario = allScenarios[indexA];
+        GameData.siteBScenario = allScenarios[indexB];
+
+        Debug.Log("✅ Site A senaryosu: " + GameData.siteAScenario.title);
+        Debug.Log("✅ Site B senaryosu: " + GameData.siteBScenario.title);
     }
 }

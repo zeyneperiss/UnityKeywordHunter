@@ -23,7 +23,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
     public void ResolveRound(bool siteAWon)
     {
         Debug.Log("ResolveRound çağrıldı!");
@@ -34,10 +33,8 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        int slotAIndex = 6 - (currentLevel * 2); // A için: 6, 4, 2, 0
-        int slotBIndex = 7 - (currentLevel * 2); // B için: 7, 5, 3, 1
-
-        Debug.Log($"Round: {currentLevel} | A Slot: {slotAIndex}, B Slot: {slotBIndex}");
+        int slotAIndex = 6 - (currentLevel * 2);
+        int slotBIndex = 7 - (currentLevel * 2);
 
         if (siteAWon)
         {
@@ -50,6 +47,25 @@ public class GameManager : MonoBehaviour
             slots[slotBIndex].SetWin();
         }
 
+        ShowWinnerText(siteAWon); // 👈 Kazanan metnini göster
+
         currentLevel++;
+    }
+
+    private void ShowWinnerText(bool siteAWon)
+    {
+        GameObject textObj = GameObject.Find("WinnerText");
+        if (textObj == null)
+        {
+            Debug.LogWarning("WinnerText objesi bulunamadı!");
+            return;
+        }
+
+        textObj.SetActive(true);
+        var tmp = textObj.GetComponent<TMPro.TextMeshProUGUI>();
+        if (tmp != null)
+        {
+            tmp.text = siteAWon ? "Site A Kazandı!" : "Site B Kazandı!";
+        }
     }
 }

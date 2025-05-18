@@ -1,0 +1,55 @@
+{
+    "scenarios": [
+        {
+            "title": "Kahve Blogu",
+            "keywords": [
+                {
+                    "text": "arabica",
+                    "correctDropArea": "Drop_Title"
+                },
+                {
+                    "text": "filtre kahve",
+                    "correctDropArea": "Drop_Content"
+                },
+                {
+                    "text": "kahve demleme",
+                    "correctDropArea": "Drop_Meta"
+                }
+            ]
+        },
+        {
+            "title": "Organik Market",
+            "keywords": [
+                {
+                    "text": "organik ürün",
+                    "correctDropArea": "Drop_H1"
+                },
+                {
+                    "text": "doğa dostu",
+                    "correctDropArea": "Drop_Content"
+                },
+                {
+                    "text": "sertifikalı",
+                    "correctDropArea": "Drop_Meta"
+                }
+            ]
+        },
+        {
+            "title": "Yazılım Blogu",
+            "keywords": [
+                {
+                    "text": ".NET Core",
+                    "correctDropArea": "Drop_Title"
+                },
+                {
+                    "text": "performans",
+                    "correctDropArea": "Drop_H1"
+                },
+                {
+                    "text": "yazılım geliştirme",
+                    "correctDropArea": "Drop_Content"
+                }
+            ]
+        }
+    ]
+}

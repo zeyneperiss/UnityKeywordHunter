@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1a48b79244242aaa3149ee208178b5, type: 3}
+  m_Name: Scenario_OrganikMarket
+  m_EditorClassIdentifier: 
+  title: "Organik \xDCr\xFCn Marketi"
+  keywords:
+  - text: organik
+    correctDropArea: Drop_H1
+  - text: "do\u011Fa dostu"
+    correctDropArea: Drop_Meta
+  - text: "sertifikal\u0131 \xFCr\xFCn"
+    correctDropArea: Drop_Content
+  - text: "do\u011Fal"
+    correctDropArea: Drop_AltText
