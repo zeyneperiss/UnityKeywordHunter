@@ -2,8 +2,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public OfficeSlotDisplay[] slots; // slot dizisi: 0 = üst sol, 7 = alt sağ
-    private int currentLevel = 0;     // hangi katta olduğumuzu tutar (0 = zemin)
+    public OfficeSlotDisplay[] slots;
 
     private void Start()
     {
@@ -13,7 +12,6 @@ public class GameManager : MonoBehaviour
 
             if (GameData.siteAPlayed && GameData.siteBPlayed)
             {
-                // Her iki site de oynandıysa round değerlendir
                 ResolveRound(GameData.siteAResult);
                 GameData.siteAPlayed = false;
                 GameData.siteBPlayed = false;
@@ -27,14 +25,15 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("ResolveRound çağrıldı!");
 
+        int currentLevel = GameData.currentSlotLevel;
         if (currentLevel >= 4)
         {
             Debug.Log("Tüm roundlar bitti.");
             return;
         }
 
-        int slotAIndex = 6 - (currentLevel * 2);
-        int slotBIndex = 7 - (currentLevel * 2);
+        int slotAIndex = 6 - (currentLevel * 2); // A için: 6, 4, 2, 0
+        int slotBIndex = 7 - (currentLevel * 2); // B için: 7, 5, 3, 1
 
         if (siteAWon)
         {
@@ -47,9 +46,14 @@ public class GameManager : MonoBehaviour
             slots[slotBIndex].SetWin();
         }
 
-        ShowWinnerText(siteAWon); // 👈 Kazanan metnini göster
+        ShowWinnerText(siteAWon);
 
-        currentLevel++;
+        GameData.currentSlotLevel++;
+
+        if (GameData.currentSlotLevel >= 4)
+        {
+            CheckFinalWinner();
+        }
     }
 
     private void ShowWinnerText(bool siteAWon)
@@ -66,6 +70,39 @@ public class GameManager : MonoBehaviour
         if (tmp != null)
         {
             tmp.text = siteAWon ? "Site A Kazandı!" : "Site B Kazandı!";
+        }
+    }
+
+    public void CheckFinalWinner()
+    {
+        int aWins = 0;
+        int bWins = 0;
+
+        // İlk 4 turda kazanan slotları kontrol et (0–7)
+        for (int i = 0; i < 4; i++)
+        {
+            int aIndex = 6 - (i * 2); // 6,4,2,0
+            int bIndex = 7 - (i * 2); // 7,5,3,1
+
+            if (slots[aIndex].IsWin()) aWins++;
+            if (slots[bIndex].IsWin()) bWins++;
+        }
+
+        // Çatı slotu (index 8) → sadece kazanan yansın
+        if (aWins > bWins)
+        {
+            slots[8].SetWin();
+            Debug.Log("🏁 Final: Site A kazandı!");
+        }
+        else if (bWins > aWins)
+        {
+            slots[8].SetLose();
+            Debug.Log("🏁 Final: Site B kazandı!");
+        }
+        else
+        {
+            Debug.Log("🏁 Final: Berabere!");
+            // Dilersen farklı renk ya da efekt verebilirsin
         }
     }
 }

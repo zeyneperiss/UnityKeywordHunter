@@ -49,4 +49,8 @@ public class OfficeSlotDisplay : MonoBehaviour
 
         image.color = targetColor; // en son sabit kalsın
     }
+    public bool IsWin()
+    {
+        return image.color == winColor;
+    }
 }
