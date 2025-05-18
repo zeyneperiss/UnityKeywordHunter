@@ -5,6 +5,25 @@ public class GameManager : MonoBehaviour
     public OfficeSlotDisplay[] slots; // slot dizisi: 0 = üst sol, 7 = alt sağ
     private int currentLevel = 0;     // hangi katta olduğumuzu tutar (0 = zemin)
 
+    private void Start()
+    {
+        if (GameData.resolveRoundOnNextLoad)
+        {
+            Debug.Log("MainScene açıldıktan sonra ışıklar uygulanacak...");
+
+            if (GameData.siteAPlayed && GameData.siteBPlayed)
+            {
+                // Her iki site de oynandıysa round değerlendir
+                ResolveRound(GameData.siteAResult);
+                GameData.siteAPlayed = false;
+                GameData.siteBPlayed = false;
+            }
+
+            GameData.resolveRoundOnNextLoad = false;
+        }
+    }
+
+
     public void ResolveRound(bool siteAWon)
     {
         Debug.Log("ResolveRound çağrıldı!");

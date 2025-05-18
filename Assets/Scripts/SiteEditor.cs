@@ -15,10 +15,12 @@ public class SiteEditor : MonoBehaviour
     {
         Debug.Log("SiteEditor Start");
 
+        // A mı B mi düzenleniyor göstergesi
         siteLabel.text = GameData.siteAIsPlaying ? "Site A düzenleniyor..." : "Site B düzenleniyor...";
 
         finishButton.onClick.AddListener(OnFinishGame);
 
+        // Seçilen senaryoyu al
         var scenario = ScenarioManager.Instance?.selectedScenario;
         if (scenario == null)
         {
@@ -26,6 +28,7 @@ public class SiteEditor : MonoBehaviour
             return;
         }
 
+        // Anahtar kelimeleri sahneye yerleştir
         allKeywords = new GameObject[scenario.keywords.Length];
 
         for (int i = 0; i < scenario.keywords.Length; i++)
@@ -33,16 +36,16 @@ public class SiteEditor : MonoBehaviour
             var keywordGO = Instantiate(keywordTemplate, keywordPanel);
             var text = keywordGO.GetComponentInChildren<TextMeshProUGUI>();
             if (text != null)
-                text.text = scenario.keywords[i].text; // 🔥 Doğru alan
+                text.text = scenario.keywords[i].text;
 
             var data = keywordGO.GetComponent<KeywordData>();
             if (data != null)
-                data.correctDropArea = scenario.keywords[i].correctDropArea; // 🔥 Doğru alan
+                data.correctDropArea = scenario.keywords[i].correctDropArea;
 
             allKeywords[i] = keywordGO;
         }
 
-        keywordTemplate.SetActive(false);
+        keywordTemplate.SetActive(false); // template gizlenir
     }
 
     public void OnFinishGame()
@@ -57,13 +60,24 @@ public class SiteEditor : MonoBehaviour
                 correctCount++;
         }
 
-        Debug.Log("Site A skoru: " + correctCount);
+        bool won = correctCount >= 3;
 
-        bool siteAWon = correctCount >= 3;
-        GameData.siteAWon = siteAWon;
+        if (GameData.siteAIsPlaying)
+        {
+            GameData.siteAResult = won;
+            GameData.siteAPlayed = true;
+        }
+        else
+        {
+            GameData.siteBResult = won;
+            GameData.siteBPlayed = true;
+        }
 
-        Debug.Log("Kazanan: " + (siteAWon ? "A" : "B"));
+        Debug.Log("Kazanan (bu tur): " + (won ? "Kazandı" : "Kaybetti"));
+
+        GameData.resolveRoundOnNextLoad = true;
 
         SceneManager.LoadScene("MainScene");
     }
+
 }

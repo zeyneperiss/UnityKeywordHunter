@@ -1,10 +1,12 @@
 public static class GameData
 {
-    public static bool siteAIsPlaying = true; // A mı oynuyor B mi 
-    public static int siteAScore = 0;
-    public static int siteBScore = 0;
-    public static bool siteAWon = true;
-    public static int currentLevel = 0;
+    public static bool siteAIsPlaying = true;
 
+    public static bool siteAResult = false;
+    public static bool siteBResult = false;
 
+    public static bool siteAPlayed = false;
+    public static bool siteBPlayed = false;
+
+    public static bool resolveRoundOnNextLoad = false;
 }
