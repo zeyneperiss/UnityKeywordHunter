@@ -1,11 +1,14 @@
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class ScenarioManager : MonoBehaviour
 {
     public static ScenarioManager Instance;
 
     public List<SEOScenario> allScenarios;
+
+    public List<SEOScenario> usedScenarios = new List<SEOScenario>(); // 🔥 Eklenen satır
 
     private void Awake()
     {
@@ -36,19 +39,31 @@ public class ScenarioManager : MonoBehaviour
 
     private void SelectTwoUniqueScenarios()
     {
-        int indexA = Random.Range(0, allScenarios.Count);
-        int indexB;
+        List<SEOScenario> available = allScenarios.Except(usedScenarios).ToList();
 
+        if (available.Count < 2)
+        {
+            usedScenarios.Clear();
+            available = new List<SEOScenario>(allScenarios);
+            Debug.Log("🔁 Kullanılan senaryolar sıfırlandı.");
+        }
+
+        int indexA = Random.Range(0, available.Count);
+        SEOScenario scenarioA = available[indexA];
+
+        SEOScenario scenarioB;
         do
         {
-            indexB = Random.Range(0, allScenarios.Count);
-        }
-        while (indexB == indexA);
+            scenarioB = available[Random.Range(0, available.Count)];
+        } while (scenarioB == scenarioA);
 
-        GameData.siteAScenario = allScenarios[indexA];
-        GameData.siteBScenario = allScenarios[indexB];
+        GameData.siteAScenario = scenarioA;
+        GameData.siteBScenario = scenarioB;
 
-        Debug.Log("✅ Site A senaryosu: " + GameData.siteAScenario.title);
-        Debug.Log("✅ Site B senaryosu: " + GameData.siteBScenario.title);
+        usedScenarios.Add(scenarioA);
+        usedScenarios.Add(scenarioB);
+
+        Debug.Log("✅ Site A senaryosu: " + scenarioA.title);
+        Debug.Log("✅ Site B senaryosu: " + scenarioB.title);
     }
 }

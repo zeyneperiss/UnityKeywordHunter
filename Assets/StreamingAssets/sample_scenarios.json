@@ -14,6 +14,14 @@
                 {
                     "text": "kahve demleme",
                     "correctDropArea": "Drop_Meta"
+                },
+                {
+                    "text": "barista tüyoları",
+                    "correctDropArea": "Drop_H1"
+                },
+                {
+                    "text": "öğütülmüş kahve",
+                    "correctDropArea": "Drop_AltText"
                 }
             ]
         },
@@ -21,16 +29,24 @@
             "title": "Organik Market",
             "keywords": [
                 {
-                    "text": "organik ürün",
+                    "text": "sertifikalı ürün",
+                    "correctDropArea": "Drop_Meta"
+                },
+                {
+                    "text": "organik sebze",
+                    "correctDropArea": "Drop_Title"
+                },
+                {
+                    "text": "GDO’suz",
                     "correctDropArea": "Drop_H1"
                 },
                 {
-                    "text": "doğa dostu",
+                    "text": "doğal yaşam",
                     "correctDropArea": "Drop_Content"
                 },
                 {
-                    "text": "sertifikalı",
-                    "correctDropArea": "Drop_Meta"
+                    "text": "ekolojik ambalaj",
+                    "correctDropArea": "Drop_AltText"
                 }
             ]
         },
@@ -48,8 +64,443 @@
                 {
                     "text": "yazılım geliştirme",
                     "correctDropArea": "Drop_Content"
+                },
+                {
+                    "text": "debugging",
+                    "correctDropArea": "Drop_AltText"
+                },
+                {
+                    "text": "kod düzeni",
+                    "correctDropArea": "Drop_Meta"
+                }
+            ]
+        },
+        {
+            "title": "Yemek Tarifi Blogu",
+            "keywords": [
+                {
+                    "text": "malzeme listesi",
+                    "correctDropArea": "Drop_Content"
+                },
+                {
+                    "text": "pişirme süresi",
+                    "correctDropArea": "Drop_Meta"
+                },
+                {
+                    "text": "nefiss tarifler",
+                    "correctDropArea": "Drop_Title"
+                },
+                {
+                    "text": "lezzet sırları",
+                    "correctDropArea": "Drop_H1"
+                },
+                {
+                    "text": "sunum önerisi",
+                    "correctDropArea": "Drop_AltText"
+                }
+            ]
+        },
+        {
+            "title": "Fitness Websitesi",
+            "keywords": [
+                {
+                    "text": "egzersiz programı",
+                    "correctDropArea": "Drop_H1"
+                },
+                {
+                    "text": "yağ yakımı",
+                    "correctDropArea": "Drop_Meta"
+                },
+                {
+                    "text": "antrenman",
+                    "correctDropArea": "Drop_Content"
+                },
+                {
+                    "text": "fit kal",
+                    "correctDropArea": "Drop_Title"
+                },
+                {
+                    "text": "kardiyo",
+                    "correctDropArea": "Drop_AltText"
+                }
+            ]
+        },
+        {
+            "title": "Teknoloji Haber Portalı",
+            "keywords": [
+                {
+                    "text": "yeni cihazlar",
+                    "correctDropArea": "Drop_H1"
+                },
+                {
+                    "text": "inovasyon",
+                    "correctDropArea": "Drop_Meta"
+                },
+                {
+                    "text": "teknoloji dünyası",
+                    "correctDropArea": "Drop_Content"
+                },
+                {
+                    "text": "yapay zeka",
+                    "correctDropArea": "Drop_Title"
+                },
+                {
+                    "text": "5G",
+                    "correctDropArea": "Drop_AltText"
+                }
+            ]
+        },
+        {
+            "title": "Eğitim Danışmanlığı",
+            "keywords": [
+                {
+                    "text": "yurtdışı eğitim",
+                    "correctDropArea": "Drop_H1"
+                },
+                {
+                    "text": "başvuru süreci",
+                    "correctDropArea": "Drop_Content"
+                },
+                {
+                    "text": "üniversite rehberi",
+                    "correctDropArea": "Drop_Meta"
+                },
+                {
+                    "text": "burs imkanları",
+                    "correctDropArea": "Drop_Title"
+                },
+                {
+                    "text": "öğrenci vizesi",
+                    "correctDropArea": "Drop_AltText"
+                }
+            ]
+        },
+        {
+            "title": "Seyahat Rehberi",
+            "keywords": [
+                {
+                    "text": "vizesiz ülkeler",
+                    "correctDropArea": "Drop_H1"
+                },
+                {
+                    "text": "gezi rotası",
+                    "correctDropArea": "Drop_Content"
+                },
+                {
+                    "text": "seyahat ipuçları",
+                    "correctDropArea": "Drop_Meta"
+                },
+                {
+                    "text": "en iyi oteller",
+                    "correctDropArea": "Drop_Title"
+                },
+                {
+                    "text": "bavul hazırlığı",
+                    "correctDropArea": "Drop_AltText"
+                }
+            ]
+        },
+        {
+            "title": "Moda Blogu",
+            "keywords": [
+                {
+                    "text": "son trendler",
+                    "correctDropArea": "Drop_Title"
+                },
+                {
+                    "text": "kombin önerileri",
+                    "correctDropArea": "Drop_Content"
+                },
+                {
+                    "text": "sürdürülebilir moda",
+                    "correctDropArea": "Drop_H1"
+                },
+                {
+                    "text": "indirim kodu",
+                    "correctDropArea": "Drop_Meta"
+                },
+                {
+                    "text": "stil tüyoları",
+                    "correctDropArea": "Drop_AltText"
+                }
+            ]
+        },
+        {
+            "title": "Finans Portalı",
+            "keywords": [
+                {
+                    "text": "yatırım araçları",
+                    "correctDropArea": "Drop_Content"
+                },
+                {
+                    "text": "döviz kuru",
+                    "correctDropArea": "Drop_H1"
+                },
+                {
+                    "text": "ekonomi analizi",
+                    "correctDropArea": "Drop_Meta"
+                },
+                {
+                    "text": "borsa tüyoları",
+                    "correctDropArea": "Drop_Title"
+                },
+                {
+                    "text": "tasarruf planı",
+                    "correctDropArea": "Drop_AltText"
+                }
+            ]
+        },
+        {
+            "title": "Kitap Öneri Platformu",
+            "keywords": [
+                {
+                    "text": "kitap yorumları",
+                    "correctDropArea": "Drop_Content"
+                },
+                {
+                    "text": "en çok satanlar",
+                    "correctDropArea": "Drop_H1"
+                },
+                {
+                    "text": "edebi türler",
+                    "correctDropArea": "Drop_Meta"
+                },
+                {
+                    "text": "okuma listesi",
+                    "correctDropArea": "Drop_Title"
+                },
+                {
+                    "text": "yazar biyografisi",
+                    "correctDropArea": "Drop_AltText"
+                }
+            ]
+        },
+        {
+            "title": "Bebek Ürünleri",
+            "keywords": [
+                {
+                    "text": "organik bebek bezi",
+                    "correctDropArea": "Drop_Title"
+                },
+                {
+                    "text": "yenidoğan ürünleri",
+                    "correctDropArea": "Drop_Content"
+                },
+                {
+                    "text": "hızlı kargo",
+                    "correctDropArea": "Drop_Meta"
+                },
+                {
+                    "text": "bebek güvenliği",
+                    "correctDropArea": "Drop_H1"
+                },
+                {
+                    "text": "anneler için rehber",
+                    "correctDropArea": "Drop_AltText"
+                }
+            ]
+        },
+        {
+            "title": "Fotoğrafçılık Blogu",
+            "keywords": [
+                {
+                    "text": "ışık ayarları",
+                    "correctDropArea": "Drop_H1"
+                },
+                {
+                    "text": "kamera önerisi",
+                    "correctDropArea": "Drop_Meta"
+                },
+                {
+                    "text": "kompozisyon teknikleri",
+                    "correctDropArea": "Drop_Content"
+                },
+                {
+                    "text": "manzara fotoğrafçılığı",
+                    "correctDropArea": "Drop_Title"
+                },
+                {
+                    "text": "lens çeşitleri",
+                    "correctDropArea": "Drop_AltText"
+                }
+            ]
+        },
+        {
+            "title": "Web Tasarım Ajansı",
+            "keywords": [
+                {
+                    "text": "mobil uyumluluk",
+                    "correctDropArea": "Drop_Meta"
+                },
+                {
+                    "text": "UI/UX tasarımı",
+                    "correctDropArea": "Drop_H1"
+                },
+                {
+                    "text": "kurumsal web sitesi",
+                    "correctDropArea": "Drop_Title"
+                },
+                {
+                    "text": "hızlı açılan sayfa",
+                    "correctDropArea": "Drop_Content"
+                },
+                {
+                    "text": "responsive yapı",
+                    "correctDropArea": "Drop_AltText"
+                }
+            ]
+        },
+        {
+            "title": "Kişisel Gelişim Sitesi",
+            "keywords": [
+                {
+                    "text": "motivasyon kaynakları",
+                    "correctDropArea": "Drop_Content"
+                },
+                {
+                    "text": "öz disiplin",
+                    "correctDropArea": "Drop_H1"
+                },
+                {
+                    "text": "hedef belirleme",
+                    "correctDropArea": "Drop_Title"
+                },
+                {
+                    "text": "verimli yaşam",
+                    "correctDropArea": "Drop_Meta"
+                },
+                {
+                    "text": "günlük alışkanlıklar",
+                    "correctDropArea": "Drop_AltText"
+                }
+            ]
+        },
+        {
+            "title": "Sinema Rehberi",
+            "keywords": [
+                {
+                    "text": "vizyon filmleri",
+                    "correctDropArea": "Drop_Title"
+                },
+                {
+                    "text": "yönetmen analizi",
+                    "correctDropArea": "Drop_Meta"
+                },
+                {
+                    "text": "IMDB puanı",
+                    "correctDropArea": "Drop_H1"
+                },
+                {
+                    "text": "fragman izle",
+                    "correctDropArea": "Drop_AltText"
+                },
+                {
+                    "text": "film yorumu",
+                    "correctDropArea": "Drop_Content"
+                }
+            ]
+        },
+        {
+            "title": "Hayvan Bakım Rehberi",
+            "keywords": [
+                {
+                    "text": "kedi maması",
+                    "correctDropArea": "Drop_Content"
+                },
+                {
+                    "text": "köpek eğitimi",
+                    "correctDropArea": "Drop_H1"
+                },
+                {
+                    "text": "veteriner hizmeti",
+                    "correctDropArea": "Drop_Meta"
+                },
+                {
+                    "text": "barınak bağışı",
+                    "correctDropArea": "Drop_AltText"
+                },
+                {
+                    "text": "hayvan sevgisi",
+                    "correctDropArea": "Drop_Title"
+                }
+            ]
+        },
+        {
+            "title": "Doğa Yürüyüşü Kulübü",
+            "keywords": [
+                {
+                    "text": "kamp malzemesi",
+                    "correctDropArea": "Drop_Content"
+                },
+                {
+                    "text": "yürüyüş rotaları",
+                    "correctDropArea": "Drop_H1"
+                },
+                {
+                    "text": "doğada güvenlik",
+                    "correctDropArea": "Drop_Meta"
+                },
+                {
+                    "text": "katılım formu",
+                    "correctDropArea": "Drop_AltText"
+                },
+                {
+                    "text": "etkinlik takvimi",
+                    "correctDropArea": "Drop_Title"
+                }
+            ]
+        },
+        {
+            "title": "Podcast Yayın Platformu",
+            "keywords": [
+                {
+                    "text": "gündem podcast",
+                    "correctDropArea": "Drop_Title"
+                },
+                {
+                    "text": "dinleme süresi",
+                    "correctDropArea": "Drop_Meta"
+                },
+                {
+                    "text": "yayın akışı",
+                    "correctDropArea": "Drop_Content"
+                },
+                {
+                    "text": "konuk bilgisi",
+                    "correctDropArea": "Drop_H1"
+                },
+                {
+                    "text": "platform desteği",
+                    "correctDropArea": "Drop_AltText"
+                }
+            ]
+        },
+        {
+            "title": "Oyun Haber Sitesi",
+            "keywords": [
+                {
+                    "text": "çıkış tarihi",
+                    "correctDropArea": "Drop_Title"
+                },
+                {
+                    "text": "oyun incelemesi",
+                    "correctDropArea": "Drop_Content"
+                },
+                {
+                    "text": "grafik kalitesi",
+                    "correctDropArea": "Drop_H1"
+                },
+                {
+                    "text": "FPS oyunları",
+                    "correctDropArea": "Drop_Meta"
+                },
+                {
+                    "text": "çok oyunculu",
+                    "correctDropArea": "Drop_AltText"
                 }
             ]
         }
+
+
     ]
 }

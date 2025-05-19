@@ -1,8 +1,20 @@
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
+using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
+    public AudioClip victoryClip;              // 🔊 Zafer sesi
+    private AudioSource audioSource;           // 🎧 AudioSource bileşeni
+
     public OfficeSlotDisplay[] slots;
+    public GameObject winnerCharacterIcon;     // 🏆 Kazanan karakter görseli (UI > Image)
+
+    private void Awake()
+    {
+        audioSource = gameObject.AddComponent<AudioSource>();
+    }
 
     private void Start()
     {
@@ -32,8 +44,8 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        int slotAIndex = 6 - (currentLevel * 2); // A için: 6, 4, 2, 0
-        int slotBIndex = 7 - (currentLevel * 2); // B için: 7, 5, 3, 1
+        int slotAIndex = 6 - (currentLevel * 2);
+        int slotBIndex = 7 - (currentLevel * 2);
 
         if (siteAWon)
         {
@@ -47,7 +59,6 @@ public class GameManager : MonoBehaviour
         }
 
         ShowWinnerText(siteAWon);
-
         GameData.currentSlotLevel++;
 
         if (GameData.currentSlotLevel >= 4)
@@ -66,7 +77,7 @@ public class GameManager : MonoBehaviour
         }
 
         textObj.SetActive(true);
-        var tmp = textObj.GetComponent<TMPro.TextMeshProUGUI>();
+        var tmp = textObj.GetComponent<TextMeshProUGUI>();
         if (tmp != null)
         {
             tmp.text = siteAWon ? "Site A Kazandı!" : "Site B Kazandı!";
@@ -78,31 +89,56 @@ public class GameManager : MonoBehaviour
         int aWins = 0;
         int bWins = 0;
 
-        // İlk 4 turda kazanan slotları kontrol et (0–7)
         for (int i = 0; i < 4; i++)
         {
-            int aIndex = 6 - (i * 2); // 6,4,2,0
-            int bIndex = 7 - (i * 2); // 7,5,3,1
+            int aIndex = 6 - (i * 2);
+            int bIndex = 7 - (i * 2);
 
             if (slots[aIndex].IsWin()) aWins++;
             if (slots[bIndex].IsWin()) bWins++;
         }
 
-        // Çatı slotu (index 8) → sadece kazanan yansın
         if (aWins > bWins)
         {
-            slots[8].SetWin();
             Debug.Log("🏁 Final: Site A kazandı!");
+            StartCoroutine(BlinkWinnerCharacter("Site A Kazandı!", Color.white));
         }
         else if (bWins > aWins)
         {
-            slots[8].SetLose();
             Debug.Log("🏁 Final: Site B kazandı!");
+            StartCoroutine(BlinkWinnerCharacter("Site B Kazandı!", Color.white));
         }
         else
         {
             Debug.Log("🏁 Final: Berabere!");
-            // Dilersen farklı renk ya da efekt verebilirsin
+            StartCoroutine(BlinkWinnerCharacter("Berabere!", Color.white));
+        }
+    }
+
+    private IEnumerator BlinkWinnerCharacter(string winnerText, Color color)
+    {
+        if (audioSource != null && victoryClip != null)
+        {
+            audioSource.PlayOneShot(victoryClip);
+        }
+
+        if (winnerCharacterIcon != null)
+        {
+            winnerCharacterIcon.SetActive(true);
+            Image img = winnerCharacterIcon.GetComponent<Image>();
+
+            int blinkCount = 4;
+            float blinkDuration = 0.25f;
+
+            for (int i = 0; i < blinkCount; i++)
+            {
+                img.color = new Color(color.r, color.g, color.b, 1f);
+                yield return new WaitForSeconds(blinkDuration);
+                img.color = new Color(color.r, color.g, color.b, 0f);
+                yield return new WaitForSeconds(blinkDuration);
+            }
+
+            img.color = new Color(color.r, color.g, color.b, 1f); // Kalıcı görünür
         }
     }
 }
