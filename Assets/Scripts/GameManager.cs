@@ -110,8 +110,21 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("🏁 Final: Berabere!");
-            StartCoroutine(BlinkWinnerCharacter("Berabere!", Color.white));
+            if (GameData.siteACompletionTime < GameData.siteBCompletionTime)
+            {
+                Debug.Log("🏁 Eşit skor ama Site A daha hızlıydı.");
+                StartCoroutine(BlinkWinnerCharacter("Site A Kazandı (süre)", Color.white));
+            }
+            else if (GameData.siteBCompletionTime < GameData.siteACompletionTime)
+            {
+                Debug.Log("🏁 Eşit skor ama Site B daha hızlıydı.");
+                StartCoroutine(BlinkWinnerCharacter("Site B Kazandı (süre)", Color.white));
+            }
+            else
+            {
+                Debug.Log("🏁 Final: Berabere!");
+                StartCoroutine(BlinkWinnerCharacter("Berabere!", Color.white));
+            }
         }
     }
 
@@ -120,6 +133,10 @@ public class GameManager : MonoBehaviour
         if (audioSource != null && victoryClip != null)
         {
             audioSource.PlayOneShot(victoryClip);
+        }
+        else
+        {
+            Debug.LogWarning("🎵 Ses çalınamadı: AudioSource veya VictoryClip eksik.");
         }
 
         if (winnerCharacterIcon != null)

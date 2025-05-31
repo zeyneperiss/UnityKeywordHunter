@@ -45,7 +45,7 @@ public class SiteEditor : MonoBehaviour
             allKeywords[i] = keywordGO;
         }
 
-        keywordTemplate.SetActive(false); // template gizlenir
+        keywordTemplate.SetActive(true); // template gizlenir
     }
 
     public void OnFinishGame()
@@ -66,11 +66,13 @@ public class SiteEditor : MonoBehaviour
         {
             GameData.siteAResult = won;
             GameData.siteAPlayed = true;
+            GameData.siteACompletionTime = Time.timeSinceLevelLoad; // ⏱ Süreyi kaydet
         }
         else
         {
             GameData.siteBResult = won;
             GameData.siteBPlayed = true;
+            GameData.siteBCompletionTime = Time.timeSinceLevelLoad; // ⏱ Süreyi kaydet
         }
 
         Debug.Log("Kazanan (bu tur): " + (won ? "Kazandı" : "Kaybetti"));

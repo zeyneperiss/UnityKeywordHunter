@@ -12,6 +12,7 @@ public class DragKeyword : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     private Vector2 originalPosition;
 
     private bool droppedOnValidArea = false;
+    private Transform targetDropArea;
 
     private void Awake()
     {
@@ -27,7 +28,8 @@ public class DragKeyword : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
         transform.SetParent(canvas.transform);
         canvasGroup.blocksRaycasts = false;
-        droppedOnValidArea = false; // Her drag başlangıcında resetle
+        droppedOnValidArea = false;
+        targetDropArea = null;
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -39,17 +41,24 @@ public class DragKeyword : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     {
         canvasGroup.blocksRaycasts = true;
 
-        // Eğer geçerli bir drop alanına bırakılmadıysa, geri dön
-        if (!droppedOnValidArea)
+        if (!droppedOnValidArea || targetDropArea == null)
         {
+            // Geçersiz bırakıldıysa geri dön
             transform.SetParent(originalParent);
             rectTransform.anchoredPosition = originalPosition;
+        }
+        else
+        {
+            // ✅ Drop alanına yerleştir
+            transform.SetParent(targetDropArea);
+            rectTransform.anchoredPosition = Vector2.zero;
         }
     }
 
     // DropArea'dan buraya çağrılacak
-    public void MarkAsDropped()
+    public void MarkAsDropped(Transform dropArea)
     {
         droppedOnValidArea = true;
+        targetDropArea = dropArea;
     }
 }

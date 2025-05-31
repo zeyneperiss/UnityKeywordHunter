@@ -15,4 +15,9 @@ public static class GameData
     public static SEOScenario siteBScenario;
 
     public static int currentSlotLevel = 0; // 0: zemin, 1: 1. kat, 2: 2. kat, ... max 3
+
+    public static float siteACompletionTime;
+    public static float siteBCompletionTime;
+
+    public static bool infoShownOnce = false;
 }

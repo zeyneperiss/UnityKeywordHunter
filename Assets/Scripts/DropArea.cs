@@ -8,27 +8,38 @@ public class DropArea : MonoBehaviour, IDropHandler
         if (eventData.pointerDrag == null)
             return;
 
-        // ❗ Sadece zaten kelime varsa engelle
+        // ✅ DragKeyword bileşeni var mı?
+        DragKeyword drag = eventData.pointerDrag.GetComponent<DragKeyword>();
+        if (drag == null)
+        {
+            Debug.LogWarning("DragKeyword component bulunamadı.");
+            return;
+        }
+
+        // ❗ Eğer zaten içeride bir keyword varsa yerleştirme
         foreach (Transform child in transform)
         {
             if (child.GetComponent<DragKeyword>() != null)
             {
-                Debug.Log("Zaten burada bir kelime var!");
+                Debug.Log("⚠️ Burada zaten bir kelime var.");
                 return;
             }
         }
 
-        // ✅ Koymaya izin ver
-        eventData.pointerDrag.transform.SetParent(this.transform);
-        eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
+        // ✅ Yerleştir
+        Transform dragged = eventData.pointerDrag.transform;
+        dragged.SetParent(transform, false); // scale & anchors korunur
 
-        // DragKeyword’a bilgi ver
-        DragKeyword drag = eventData.pointerDrag.GetComponent<DragKeyword>();
-        if (drag != null)
-        {
-            drag.MarkAsDropped();
-        }
+        RectTransform draggedRect = dragged.GetComponent<RectTransform>();
+        draggedRect.anchorMin = new Vector2(0.5f, 0.5f);
+        draggedRect.anchorMax = new Vector2(0.5f, 0.5f);
+        draggedRect.pivot = new Vector2(0.5f, 0.5f);
+        draggedRect.anchoredPosition = Vector2.zero;
+        draggedRect.localScale = Vector3.one;
 
-        Debug.Log("Drop gerçekleşti: " + gameObject.name);
+        // 🎯 DragKeyword’a haber ver (parametre gönderiyoruz!)
+        drag.MarkAsDropped(this.transform); // ✅ burada düzeltildi
+
+        Debug.Log("✅ Drop gerçekleşti: " + gameObject.name);
     }
 }
