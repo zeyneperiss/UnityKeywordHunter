@@ -1,18 +1,26 @@
 using UnityEngine;
 using TMPro;
 using System.IO;
+using System.Collections.Generic;
 
 public class InfoDataLoader : MonoBehaviour
 {
     [System.Serializable]
-    public class InfoData
+    public class PageData
     {
         public string title;
         public string body;
     }
 
-    public TextMeshProUGUI titleText;
-    public TextMeshProUGUI bodyText;
+    [System.Serializable]
+    public class InfoData
+    {
+        public List<PageData> pages;
+    }
+
+    [Header("Page Text Targets")]
+    public TextMeshProUGUI[] pageTitles;
+    public TextMeshProUGUI[] pageBodies;
 
     private void Start()
     {
@@ -23,12 +31,17 @@ public class InfoDataLoader : MonoBehaviour
             string json = File.ReadAllText(path);
             InfoData data = JsonUtility.FromJson<InfoData>(json);
 
-            titleText.text = data.title;
-            bodyText.text = data.body;
+            for (int i = 0; i < data.pages.Count && i < pageTitles.Length; i++)
+            {
+                pageTitles[i].text = data.pages[i].title;
+                pageBodies[i].text = data.pages[i].body;
+            }
+
+            Debug.Log("✅ InfoData başarıyla yüklendi.");
         }
         else
         {
-            Debug.LogError("seo_info.json bulunamadı! Yol: " + path);
+            Debug.LogError("❌ seo_info.json bulunamadı! Yol: " + path);
         }
     }
 }

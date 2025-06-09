@@ -1,30 +1,39 @@
 ﻿<Properties StartupConfiguration="{1FCE1D4A-7F7F-14C6-1D07-4A684ECA2303}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/DragKeyword.cs">
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="79e2e3f5-0d49-4e2e-94f4-0a72c9cdaff2" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/InfoDataLoader.cs">
     <Files>
       <File FileName="Assets/Scripts/OfficeSlotDisplay.cs" />
       <File FileName="Assets/Scripts/GameManager.cs" />
       <File FileName="Assets/Scripts/GameData.cs" />
       <File FileName="Assets/Scripts/SceneLoader.cs" />
       <File FileName="Assets/Scripts/SiteEditor.cs" />
-      <File FileName="Assets/Scripts/DragKeyword.cs" Line="29" Column="47" />
-      <File FileName="Assets/Scripts/DropArea.cs" Line="37" Column="53" />
+      <File FileName="Assets/Scripts/DragKeyword.cs" />
+      <File FileName="Assets/Scripts/DropArea.cs" />
       <File FileName="Assets/Scripts/ScenarioManager.cs" />
       <File FileName="Assets/Scripts/GameTimer.cs" />
       <File FileName="Assets/Scripts/KeywordData.cs" />
       <File FileName="Assets/Scripts/SEOScenario.cs" />
       <File FileName="Assets/StreamingAssets/sample_scenarios.json" />
-      <File FileName="Assets/Scripts/JsonScenarioLoader.cs" />
-      <File FileName="Assets/Scripts/InfoPanelController.cs" />
-      <File FileName="Assets/StreamingAssets/seo_info.json" />
-      <File FileName="Assets/Scripts/InfoDataLoader.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/JsonScenarioLoader.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/InfoPanelController.cs" Line="44" Column="2" />
+      <File FileName="Assets/StreamingAssets/seo_info.json" Line="14" Column="2" />
+      <File FileName="Assets/Scripts/InfoDataLoader.cs" Line="17" Column="6" />
+      <File FileName="Library/PackageCache/com.unity.render-pipelines.universal@506b3deb0041/Shaders/2D/Sprite-Lit-Default.shader" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="SEOKeywordGame">
             <Node name="Assets" expanded="True">
+              <Node name="ScriptableObjects" expanded="True">
+                <Node name="Scenarios" expanded="True" />
+              </Node>
               <Node name="Scripts" expanded="True">
-                <Node name="DragKeyword.cs" selected="True" />
+                <Node name="InfoDataLoader.cs" selected="True" />
               </Node>
               <Node name="StreamingAssets" expanded="True" />
             </Node>
@@ -33,11 +42,6 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="400c60f3-5bdb-413b-af19-8ca2de555791" />
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
 </Properties>

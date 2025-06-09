@@ -1,4 +1,28 @@
 {
-  "title": "SEO nedir?",
-  "body": "SEO, arama motoru optimizasyonudur. Web sitenizin görünürlüğünü artırmak için kullanılır. Başlık, açıklama, içerik ve görsellerde anahtar kelimelerin doğru kullanımı önemlidir."
+    "pages": [
+        {
+            "title": "SEO nedir?",
+            "body": "SEO (Arama Motoru Optimizasyonu), bir web sitesinin arama motorlarında daha üst sıralarda görünmesini sağlamak için yapılan çalışmalardır."
+        },
+        {
+            "title": "Başlık Alanı",
+            "body": "Başlıklar, arama motorlarının ilk incelediği alanlardır. Anahtar kelime mutlaka başlıkta geçmelidir."
+        },
+        {
+            "title": "Meta Açıklama",
+            "body": "Meta açıklama, arama sonuçlarında görünen tanıtıcı metindir. Anahtar kelime içerdiğinde tıklanma oranı artar."
+        },
+        {
+            "title": "H1 Başlığı",
+            "body": "Sayfanın ana başlığı olan H1 etiketi, SEO açısından çok kritiktir. Anahtar kelime burada mutlaka geçmelidir."
+        },
+        {
+            "title": "İçerik Alanı",
+            "body": "Kaliteli ve özgün içerik, SEO başarısının temelidir. Anahtar kelimeler doğal akışta yer almalıdır."
+        },
+        {
+            "title": "Alt Metin (Alt Text)",
+            "body": "Görsellere eklenen alt metinler, görsel aramalarda çıkmanı sağlar. Anahtar kelime burada da kullanılmalıdır."
+        }
+    ]
 }

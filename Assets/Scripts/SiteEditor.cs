@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class SiteEditor : MonoBehaviour
 {
     public TextMeshProUGUI siteLabel;
+    public TextMeshProUGUI scenarioTitleText; 
     public Button finishButton;
     public GameObject keywordTemplate;
     public Transform keywordPanel;
@@ -27,6 +28,7 @@ public class SiteEditor : MonoBehaviour
             Debug.LogError("Senaryo bulunamadı!");
             return;
         }
+        scenarioTitleText.text = scenario.title; // <-- JSON'daki title'ı yaz
 
         // Anahtar kelimeleri sahneye yerleştir
         allKeywords = new GameObject[scenario.keywords.Length];

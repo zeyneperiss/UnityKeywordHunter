@@ -6,15 +6,16 @@ public class InfoPanelController : MonoBehaviour
 
     private void Start()
     {
-        if (!GameData.infoShownOnce)
+        // Kalıcı kontrol: Sadece ilk oyunda göster
+        if (PlayerPrefs.GetInt("InfoShownOnce", 0) == 0)
         {
             infoPanel.SetActive(true);
-            GameData.infoShownOnce = true;
-            Debug.Log("ℹ️ İlk kez gösterildi: InfoPanel");
+            PlayerPrefs.SetInt("InfoShownOnce", 1); // kalıcı olarak bir daha açmamak üzere işaretle
+            Debug.Log("ℹ️ InfoPanel ilk kez gösterildi.");
         }
         else
         {
-            infoPanel.SetActive(false); // tekrar oyunlara girince otomatik açılmasın
+            infoPanel.SetActive(false);
         }
     }
 
@@ -25,10 +26,14 @@ public class InfoPanelController : MonoBehaviour
 
     public void CloseInfo()
     {
-        if (infoPanel != null)
-        {
-            infoPanel.SetActive(false);
-            Debug.Log("📴 Info Panel kapatıldı");
-        }
+        infoPanel.SetActive(false);
+    }
+
+    // DEBUG veya Ayarlar için sıfırlamak istersen:
+    [ContextMenu("Reset InfoPanel Memory")]
+    public void ResetInfoMemory()
+    {
+        PlayerPrefs.DeleteKey("InfoShownOnce");
+        Debug.Log("ℹ️ InfoPanel gösterim durumu sıfırlandı.");
     }
 }

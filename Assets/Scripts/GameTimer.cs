@@ -26,7 +26,7 @@ public class GameTimer : MonoBehaviour
         {
             currentTime -= Time.deltaTime;
             int seconds = Mathf.Clamp(Mathf.CeilToInt(currentTime), 0, 999);
-            timerText.text = "Süre: " + seconds.ToString();
+            timerText.text = " " + seconds.ToString();
 
             if (currentTime <= 0 && !hasEnded)
             {
