@@ -4,36 +4,34 @@
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/InfoDataLoader.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/DropArea.cs">
     <Files>
-      <File FileName="Assets/Scripts/OfficeSlotDisplay.cs" />
-      <File FileName="Assets/Scripts/GameManager.cs" />
       <File FileName="Assets/Scripts/GameData.cs" />
       <File FileName="Assets/Scripts/SceneLoader.cs" />
-      <File FileName="Assets/Scripts/SiteEditor.cs" />
-      <File FileName="Assets/Scripts/DragKeyword.cs" />
-      <File FileName="Assets/Scripts/DropArea.cs" />
+      <File FileName="Assets/Scripts/SiteEditor.cs" Line="15" Column="25" />
+      <File FileName="Assets/Scripts/DragKeyword.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/DropArea.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/ScenarioManager.cs" />
       <File FileName="Assets/Scripts/GameTimer.cs" />
-      <File FileName="Assets/Scripts/KeywordData.cs" />
-      <File FileName="Assets/Scripts/SEOScenario.cs" />
-      <File FileName="Assets/StreamingAssets/sample_scenarios.json" />
-      <File FileName="Assets/Scripts/JsonScenarioLoader.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/InfoPanelController.cs" Line="44" Column="2" />
-      <File FileName="Assets/StreamingAssets/seo_info.json" Line="14" Column="2" />
-      <File FileName="Assets/Scripts/InfoDataLoader.cs" Line="17" Column="6" />
-      <File FileName="Library/PackageCache/com.unity.render-pipelines.universal@506b3deb0041/Shaders/2D/Sprite-Lit-Default.shader" />
+      <File FileName="Assets/Scripts/KeywordData.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/SEOScenario.cs" Line="1" Column="1" />
+      <File FileName="Assets/StreamingAssets/sample_scenarios.json" Line="102" Column="11" />
+      <File FileName="Assets/Scripts/JsonScenarioLoader.cs" />
+      <File FileName="Assets/Scripts/InfoPanelController.cs" Line="39" Column="2" />
+      <File FileName="Assets/StreamingAssets/seo_info.json" Line="28" Column="2" />
+      <File FileName="Assets/Scripts/InfoDataLoader.cs" Line="47" Column="2" />
+      <File FileName="Assets/Scripts/PageSwiper.cs" Line="70" Column="2" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="SEOKeywordGame">
+          <Node name="SEOKeywordGame" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="ScriptableObjects" expanded="True">
                 <Node name="Scenarios" expanded="True" />
               </Node>
               <Node name="Scripts" expanded="True">
-                <Node name="InfoDataLoader.cs" selected="True" />
+                <Node name="DropArea.cs" selected="True" />
               </Node>
               <Node name="StreamingAssets" expanded="True" />
             </Node>

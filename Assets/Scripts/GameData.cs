@@ -20,4 +20,10 @@ public static class GameData
     public static float siteBCompletionTime;
 
     public static bool infoShownOnce = false;
+
+    //public static string[] roundWinners = new string[4]; // 4 turun kazanan ismini tutacak
+    public static string[] roundResults = new string[4]; // 4 turun sonucu tutulacak
+    public static bool[] siteAWins = new bool[4];
+    public static string finalWinnerText = "";
+
 }

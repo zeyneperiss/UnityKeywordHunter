@@ -5,11 +5,13 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
-    public AudioClip victoryClip;              // 🔊 Zafer sesi
-    private AudioSource audioSource;           // 🎧 AudioSource bileşeni
+    public AudioClip victoryClip;
+    private AudioSource audioSource;
 
     public OfficeSlotDisplay[] slots;
-    public GameObject winnerCharacterIcon;     // 🏆 Kazanan karakter görseli (UI > Image)
+    public GameObject winnerCharacterIcon;
+    public GameObject scorePanel;
+    public ScorePanelDisplay scorePanelDisplay;
 
     private void Awake()
     {
@@ -20,8 +22,6 @@ public class GameManager : MonoBehaviour
     {
         if (GameData.resolveRoundOnNextLoad)
         {
-            Debug.Log("MainScene açıldıktan sonra ışıklar uygulanacak...");
-
             if (GameData.siteAPlayed && GameData.siteBPlayed)
             {
                 ResolveRound(GameData.siteAResult);
@@ -35,21 +35,37 @@ public class GameManager : MonoBehaviour
 
     public void ResolveRound(bool siteAWon)
     {
-        Debug.Log("ResolveRound çağrıldı!");
-
         int currentLevel = GameData.currentSlotLevel;
-        if (currentLevel >= 4)
+        if (currentLevel >= 4) return;
+
+        // ✅ Kazananı GameData'a kaydet
+        GameData.siteAWins[currentLevel] = siteAWon;
+
+        // ✅ Önceki slotları sabit renkte yeniden boya
+        for (int i = 0; i < currentLevel; i++)
         {
-            Debug.Log("Tüm roundlar bitti.");
-            return;
+            int prevA = 6 - (i * 2);
+            int prevB = 7 - (i * 2);
+
+            if (GameData.siteAWins[i])
+            {
+                slots[prevA].SetWin(false); // sabit yeşil
+                slots[prevB].SetLose(false); // sabit kırmızı
+            }
+            else
+            {
+                slots[prevA].SetLose(false);
+                slots[prevB].SetWin(false);
+            }
         }
 
+        // 🎯 Bu turdaki slotları yanıp söndür
         int slotAIndex = 6 - (currentLevel * 2);
         int slotBIndex = 7 - (currentLevel * 2);
 
         if (siteAWon)
         {
-            slots[slotAIndex].SetWin();
+            slots[slotAIndex].SetWin();   // yanıp sönsün
             slots[slotBIndex].SetLose();
         }
         else
@@ -57,6 +73,10 @@ public class GameManager : MonoBehaviour
             slots[slotAIndex].SetLose();
             slots[slotBIndex].SetWin();
         }
+
+        // 📝 Round skoru
+        string winner = siteAWon ? "Player 1" : "Player 2";
+        GameData.roundResults[currentLevel] = $"Round {currentLevel + 1}: {winner}";
 
         ShowWinnerText(siteAWon);
         GameData.currentSlotLevel++;
@@ -70,17 +90,13 @@ public class GameManager : MonoBehaviour
     private void ShowWinnerText(bool siteAWon)
     {
         GameObject textObj = GameObject.Find("WinnerText");
-        if (textObj == null)
-        {
-            Debug.LogWarning("WinnerText objesi bulunamadı!");
-            return;
-        }
+        if (textObj == null) return;
 
         textObj.SetActive(true);
         var tmp = textObj.GetComponent<TextMeshProUGUI>();
         if (tmp != null)
         {
-            tmp.text = siteAWon ? "Site A Kazandı!" : "Site B Kazandı!";
+            tmp.text = siteAWon ? "Player 1 Kazandı!" : "Player 2 Kazandı!";
         }
     }
 
@@ -89,55 +105,48 @@ public class GameManager : MonoBehaviour
         int aWins = 0;
         int bWins = 0;
 
+        // ✅ Gerçek sonuç GameData.siteAWins üzerinden sayılıyor
         for (int i = 0; i < 4; i++)
         {
-            int aIndex = 6 - (i * 2);
-            int bIndex = 7 - (i * 2);
-
-            if (slots[aIndex].IsWin()) aWins++;
-            if (slots[bIndex].IsWin()) bWins++;
+            if (GameData.siteAWins[i]) aWins++;
+            else bWins++;
         }
+
+        string finalResult = "";
 
         if (aWins > bWins)
         {
-            Debug.Log("🏁 Final: Site A kazandı!");
-            StartCoroutine(BlinkWinnerCharacter("Site A Kazandı!", Color.white));
+            finalResult = "Player 1 Kazandı!";
         }
         else if (bWins > aWins)
         {
-            Debug.Log("🏁 Final: Site B kazandı!");
-            StartCoroutine(BlinkWinnerCharacter("Site B Kazandı!", Color.white));
+            finalResult = "Player 2 Kazandı!";
         }
         else
         {
             if (GameData.siteACompletionTime < GameData.siteBCompletionTime)
-            {
-                Debug.Log("🏁 Eşit skor ama Site A daha hızlıydı.");
-                StartCoroutine(BlinkWinnerCharacter("Site A Kazandı (süre)", Color.white));
-            }
+                finalResult = "Player 1 Kazandı (süre)";
             else if (GameData.siteBCompletionTime < GameData.siteACompletionTime)
-            {
-                Debug.Log("🏁 Eşit skor ama Site B daha hızlıydı.");
-                StartCoroutine(BlinkWinnerCharacter("Site B Kazandı (süre)", Color.white));
-            }
+                finalResult = "Player 2 Kazandı (süre)";
             else
-            {
-                Debug.Log("🏁 Final: Berabere!");
-                StartCoroutine(BlinkWinnerCharacter("Berabere!", Color.white));
-            }
+                finalResult = "Berabere!";
+        }
+
+        Debug.Log("🏁 Final sonucu: " + finalResult);
+        StartCoroutine(BlinkWinnerCharacter(finalResult, Color.white));
+        GameData.finalWinnerText = finalResult;
+
+        if (scorePanel != null && scorePanelDisplay != null)
+        {
+            scorePanel.SetActive(true);
+            scorePanelDisplay.UpdateScorePanel();
         }
     }
 
     private IEnumerator BlinkWinnerCharacter(string winnerText, Color color)
     {
         if (audioSource != null && victoryClip != null)
-        {
             audioSource.PlayOneShot(victoryClip);
-        }
-        else
-        {
-            Debug.LogWarning("🎵 Ses çalınamadı: AudioSource veya VictoryClip eksik.");
-        }
 
         if (winnerCharacterIcon != null)
         {
@@ -155,7 +164,19 @@ public class GameManager : MonoBehaviour
                 yield return new WaitForSeconds(blinkDuration);
             }
 
-            img.color = new Color(color.r, color.g, color.b, 1f); // Kalıcı görünür
+            img.color = new Color(color.r, color.g, color.b, 1f);
         }
+    }
+    public void RestartGame()
+    {
+        Debug.Log("🔁 Oyun yeniden başlatılıyor...");
+        GameData.currentSlotLevel = 0;
+        GameData.siteAPlayed = false;
+        GameData.siteBPlayed = false;
+        GameData.roundResults = new string[4];
+        GameData.siteAWins = new bool[4];
+        GameData.resolveRoundOnNextLoad = false;
+
+        UnityEngine.SceneManagement.SceneManager.LoadScene("MainScene");
     }
 }

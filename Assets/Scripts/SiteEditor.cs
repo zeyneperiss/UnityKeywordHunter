@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class SiteEditor : MonoBehaviour
 {
     public TextMeshProUGUI siteLabel;
-    public TextMeshProUGUI scenarioTitleText; 
+    public TextMeshProUGUI scenarioTitleText;
     public Button finishButton;
     public GameObject keywordTemplate;
     public Transform keywordPanel;
@@ -21,14 +21,19 @@ public class SiteEditor : MonoBehaviour
 
         finishButton.onClick.AddListener(OnFinishGame);
 
-        // Seçilen senaryoyu al
+        // Senaryo başlığı ilk açıldığında gizli olsun
+        if (scenarioTitleText != null)
+        {
+            scenarioTitleText.enabled = false;
+        }
+
+        // Senaryoyu al
         var scenario = GameData.siteAIsPlaying ? GameData.siteAScenario : GameData.siteBScenario;
         if (scenario == null)
         {
             Debug.LogError("Senaryo bulunamadı!");
             return;
         }
-        scenarioTitleText.text = scenario.title; // <-- JSON'daki title'ı yaz
 
         // Anahtar kelimeleri sahneye yerleştir
         allKeywords = new GameObject[scenario.keywords.Length];
@@ -50,6 +55,22 @@ public class SiteEditor : MonoBehaviour
         keywordTemplate.SetActive(true); // template gizlenir
     }
 
+    /// <summary>
+    /// Oyun başladığında (örneğin BAŞLA butonuna tıklanınca) bu fonksiyon çağrılır
+    /// </summary>
+    public void StartGame()
+    {
+        var scenario = GameData.siteAIsPlaying ? GameData.siteAScenario : GameData.siteBScenario;
+
+        if (scenario != null && scenarioTitleText != null)
+        {
+            scenarioTitleText.text = scenario.title;
+            scenarioTitleText.enabled = true;
+        }
+
+        Debug.Log("🎯 Oyun başladı, senaryo başlığı gösterildi.");
+    }
+
     public void OnFinishGame()
     {
         Debug.Log("OnFinishGame çalıştı");
@@ -68,20 +89,18 @@ public class SiteEditor : MonoBehaviour
         {
             GameData.siteAResult = won;
             GameData.siteAPlayed = true;
-            GameData.siteACompletionTime = Time.timeSinceLevelLoad; // ⏱ Süreyi kaydet
+            GameData.siteACompletionTime = Time.timeSinceLevelLoad;
         }
         else
         {
             GameData.siteBResult = won;
             GameData.siteBPlayed = true;
-            GameData.siteBCompletionTime = Time.timeSinceLevelLoad; // ⏱ Süreyi kaydet
+            GameData.siteBCompletionTime = Time.timeSinceLevelLoad;
         }
 
         Debug.Log("Kazanan (bu tur): " + (won ? "Kazandı" : "Kaybetti"));
-
         GameData.resolveRoundOnNextLoad = true;
 
         SceneManager.LoadScene("MainScene");
     }
-
 }

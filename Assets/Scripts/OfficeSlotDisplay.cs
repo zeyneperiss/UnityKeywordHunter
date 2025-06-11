@@ -16,16 +16,26 @@ public class OfficeSlotDisplay : MonoBehaviour
         ResetColor(); // sahne başında gri renkte olsun
     }
 
-    public void SetWin()
+    public void SetWin(bool blink = true)
     {
+        if (image == null) image = GetComponent<Image>();
+
         StopAllCoroutines();
-        StartCoroutine(Blink(winColor));
+        if (blink)
+            StartCoroutine(Blink(winColor));
+        else
+            image.color = winColor;
     }
 
-    public void SetLose()
+    public void SetLose(bool blink = true)
     {
+        if (image == null) image = GetComponent<Image>();
+
         StopAllCoroutines();
-        StartCoroutine(Blink(loseColor));
+        if (blink)
+            StartCoroutine(Blink(loseColor));
+        else
+            image.color = loseColor;
     }
 
     public void ResetColor()
