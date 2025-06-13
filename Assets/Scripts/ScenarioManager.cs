@@ -8,7 +8,7 @@ public class ScenarioManager : MonoBehaviour
 
     public List<SEOScenario> allScenarios;
 
-    public List<SEOScenario> usedScenarios = new List<SEOScenario>(); // 🔥 Eklenen satır
+    public List<SEOScenario> usedScenarios = new List<SEOScenario>(); 
 
     private void Awake()
     {
@@ -45,7 +45,7 @@ public class ScenarioManager : MonoBehaviour
         {
             usedScenarios.Clear();
             available = new List<SEOScenario>(allScenarios);
-            Debug.Log("🔁 Kullanılan senaryolar sıfırlandı.");
+            Debug.Log(" Kullanılan senaryolar sıfırlandı.");
         }
 
         int indexA = Random.Range(0, available.Count);
@@ -63,7 +63,7 @@ public class ScenarioManager : MonoBehaviour
         usedScenarios.Add(scenarioA);
         usedScenarios.Add(scenarioB);
 
-        Debug.Log("✅ Site A senaryosu: " + scenarioA.title);
-        Debug.Log("✅ Site B senaryosu: " + scenarioB.title);
+        Debug.Log("Player 1 senaryosu: " + scenarioA.title);
+        Debug.Log("Player 2 senaryosu: " + scenarioB.title);
     }
 }

@@ -7,7 +7,7 @@ public class GameTimer : MonoBehaviour
     public float totalTime = 30f;
     private float currentTime;
     private bool isRunning = false;
-    private bool hasEnded = false; // 🔹 Süre bir kez bittiğinde flag
+    private bool hasEnded = false; // Süre bir kez bittiğinde flag
 
     public TextMeshProUGUI timerText;
     public Button startButton;
@@ -33,7 +33,7 @@ public class GameTimer : MonoBehaviour
                 isRunning = false;
                 hasEnded = true;
 
-                Debug.Log("⏰ Süre bitti! Otomatik olarak bitiriliyor...");
+                Debug.Log(" Süre bitti! Otomatik olarak bitiriliyor...");
 
                 // Finish butonuna otomatik tıklama
                 if (finishButton != null)

@@ -3,8 +3,8 @@ using UnityEngine.UI;
 
 public class PageSwiper : MonoBehaviour
 {
-    public GameObject[] pages; // Page1, Page2, Page3
-    public Image[] dots;       // Dot1, Dot2, Dot3
+    public GameObject[] pages; // Page1, Page2, Page3,4,5,6
+    public Image[] dots;       // Dot1, Dot2, Dot3,4,5,6
 
     private int currentPage = 0;
     private Vector2 startTouchPosition, endTouchPosition;

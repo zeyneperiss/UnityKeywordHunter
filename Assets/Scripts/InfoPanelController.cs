@@ -12,7 +12,7 @@ public class InfoPanelController : MonoBehaviour
         if (PlayerPrefs.GetInt("InfoShownOnce", 0) == 0)
         {
             infoPanel.SetActive(true);
-            scenarioTitleText.enabled = false; // 🔕 Başlığı gizle
+            scenarioTitleText.enabled = false; //  Başlığı gizle
             PlayerPrefs.SetInt("InfoShownOnce", 1); // kalıcı olarak bir daha açmamak üzere işaretle
             Debug.Log("ℹ️ InfoPanel ilk kez gösterildi.");
             
@@ -20,20 +20,20 @@ public class InfoPanelController : MonoBehaviour
         else
         {
             infoPanel.SetActive(false);
-            scenarioTitleText.enabled = true;  // 🎯 Açık başlasın
+            scenarioTitleText.enabled = true;  //  Açık başlasın
         }
     }
 
     public void OpenInfo()
     {
         infoPanel.SetActive(true);
-        scenarioTitleText.enabled = false; // 🔕 Panel açılınca gizle
+        scenarioTitleText.enabled = false; // Panel açılınca gizle
     }
 
     public void CloseInfo()
     {
         infoPanel.SetActive(false);
-        scenarioTitleText.enabled = true; // ✅ Panel kapanınca göster
+        scenarioTitleText.enabled = true; // Panel kapanınca göster
     }
 
     // DEBUG veya Ayarlar için sıfırlamak istersen:
@@ -41,6 +41,6 @@ public class InfoPanelController : MonoBehaviour
     public void ResetInfoMemory()
     {
         PlayerPrefs.DeleteKey("InfoShownOnce");
-        Debug.Log("ℹ️ InfoPanel gösterim durumu sıfırlandı.");
+        Debug.Log(" InfoPanel gösterim durumu sıfırlandı.");
     }
 }

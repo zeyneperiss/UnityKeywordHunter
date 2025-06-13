@@ -3,12 +3,22 @@ using UnityEngine.EventSystems;
 
 public class DropArea : MonoBehaviour, IDropHandler
 {
+    public AudioClip dropSuccessSound; 
+    private AudioSource audioSource;
+
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+            audioSource = gameObject.AddComponent<AudioSource>();
+    }
+
     public void OnDrop(PointerEventData eventData)
     {
         if (eventData.pointerDrag == null)
             return;
 
-        // ✅ DragKeyword bileşeni var mı?
+        // DragKeyword bileşeni var mı?
         DragKeyword drag = eventData.pointerDrag.GetComponent<DragKeyword>();
         if (drag == null)
         {
@@ -16,17 +26,17 @@ public class DropArea : MonoBehaviour, IDropHandler
             return;
         }
 
-        // ❗ Eğer zaten içeride bir keyword varsa yerleştirme
+        // Eğer zaten içeride bir keyword varsa yerleştirme
         foreach (Transform child in transform)
         {
             if (child.GetComponent<DragKeyword>() != null)
             {
-                Debug.Log("⚠️ Burada zaten bir kelime var.");
+                Debug.Log(" Burada zaten bir kelime var.");
                 return;
             }
         }
 
-        // ✅ Yerleştir
+        // Yerleştir
         Transform dragged = eventData.pointerDrag.transform;
         dragged.SetParent(transform, false); // scale & anchors korunur
 
@@ -37,9 +47,12 @@ public class DropArea : MonoBehaviour, IDropHandler
         draggedRect.anchoredPosition = Vector2.zero;
         draggedRect.localScale = Vector3.one;
 
-        // 🎯 DragKeyword’a haber ver (parametre gönderiyoruz!)
-        drag.MarkAsDropped(this.transform); // ✅ burada düzeltildi
+        //  DragKeyword’a haber ver 
+        drag.MarkAsDropped(this.transform); 
 
-        Debug.Log("✅ Drop gerçekleşti: " + gameObject.name);
+        // başarıyla bırakıldıysa  sesi çal
+        if (dropSuccessSound != null && audioSource != null)
+            audioSource.PlayOneShot(dropSuccessSound, 0.3f); 
+        Debug.Log(" Drop gerçekleşti: " + gameObject.name);
     }
 }

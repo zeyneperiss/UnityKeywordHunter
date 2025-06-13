@@ -11,17 +11,24 @@ public class SiteEditor : MonoBehaviour
     public GameObject keywordTemplate;
     public Transform keywordPanel;
     public GameObject[] allKeywords;
+    public AudioClip finishClickSound;        
+    public AudioSource audioSource;          
 
+    public void PlayFinishClickSound()
+    {
+        if (audioSource != null && finishClickSound != null)
+            audioSource.PlayOneShot(finishClickSound, 0.7f); 
+    }
     private void Start()
     {
         Debug.Log("SiteEditor Start");
 
-        // A mı B mi düzenleniyor göstergesi
+        // player1 mi player2 mi düzenleniyor göstergesi
         siteLabel.text = GameData.siteAIsPlaying ? "Site A düzenleniyor..." : "Site B düzenleniyor...";
 
         finishButton.onClick.AddListener(OnFinishGame);
 
-        // Senaryo başlığı ilk açıldığında gizli olsun
+        // Senaryo başlığı ilk açıldığında gizli olucak
         if (scenarioTitleText != null)
         {
             scenarioTitleText.enabled = false;
@@ -55,9 +62,7 @@ public class SiteEditor : MonoBehaviour
         keywordTemplate.SetActive(true); // template gizlenir
     }
 
-    /// <summary>
-    /// Oyun başladığında (örneğin BAŞLA butonuna tıklanınca) bu fonksiyon çağrılır
-    /// </summary>
+    
     public void StartGame()
     {
         var scenario = GameData.siteAIsPlaying ? GameData.siteAScenario : GameData.siteBScenario;
@@ -68,7 +73,7 @@ public class SiteEditor : MonoBehaviour
             scenarioTitleText.enabled = true;
         }
 
-        Debug.Log("🎯 Oyun başladı, senaryo başlığı gösterildi.");
+        Debug.Log(" Oyun başladı, senaryo başlığı gösterildi.");
     }
 
     public void OnFinishGame()

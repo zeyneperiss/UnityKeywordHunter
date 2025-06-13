@@ -49,7 +49,7 @@ public class DragKeyword : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         }
         else
         {
-            // ✅ Drop alanına yerleştir
+            //  Drop alanına yerleştir
             transform.SetParent(targetDropArea);
             rectTransform.anchoredPosition = Vector2.zero;
         }

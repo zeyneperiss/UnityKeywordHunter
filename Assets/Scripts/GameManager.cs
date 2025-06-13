@@ -38,10 +38,10 @@ public class GameManager : MonoBehaviour
         int currentLevel = GameData.currentSlotLevel;
         if (currentLevel >= 4) return;
 
-        // ✅ Kazananı GameData'a kaydet
+        // Kazananı GameData'a kaydet
         GameData.siteAWins[currentLevel] = siteAWon;
 
-        // ✅ Önceki slotları sabit renkte yeniden boya
+        //  Önceki slotları sabit renkte yeniden boya
         for (int i = 0; i < currentLevel; i++)
         {
             int prevA = 6 - (i * 2);
@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        // 🎯 Bu turdaki slotları yanıp söndür
+        //  Bu turdaki slotları yanıp söndür
         int slotAIndex = 6 - (currentLevel * 2);
         int slotBIndex = 7 - (currentLevel * 2);
 
@@ -74,9 +74,9 @@ public class GameManager : MonoBehaviour
             slots[slotBIndex].SetWin();
         }
 
-        // 📝 Round skoru
+        // Round skoru
         string winner = siteAWon ? "Player 1" : "Player 2";
-        GameData.roundResults[currentLevel] = $"Round {currentLevel + 1}: {winner}";
+        GameData.roundResults[currentLevel] = $"  {winner}";
 
         ShowWinnerText(siteAWon);
         GameData.currentSlotLevel++;
@@ -105,7 +105,7 @@ public class GameManager : MonoBehaviour
         int aWins = 0;
         int bWins = 0;
 
-        // ✅ Gerçek sonuç GameData.siteAWins üzerinden sayılıyor
+        //  Gerçek sonuç GameData.siteAWins üzerinden sayılıyor
         for (int i = 0; i < 4; i++)
         {
             if (GameData.siteAWins[i]) aWins++;
@@ -169,7 +169,7 @@ public class GameManager : MonoBehaviour
     }
     public void RestartGame()
     {
-        Debug.Log("🔁 Oyun yeniden başlatılıyor...");
+        Debug.Log(" Oyun yeniden başlatılıyor...");
         GameData.currentSlotLevel = 0;
         GameData.siteAPlayed = false;
         GameData.siteBPlayed = false;

@@ -1,26 +1,21 @@
 ﻿<Properties StartupConfiguration="{1FCE1D4A-7F7F-14C6-1D07-4A684ECA2303}|">
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="79e2e3f5-0d49-4e2e-94f4-0a72c9cdaff2" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/DropArea.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/StreamingAssets/seo_info.json">
     <Files>
-      <File FileName="Assets/Scripts/GameData.cs" />
-      <File FileName="Assets/Scripts/SceneLoader.cs" />
-      <File FileName="Assets/Scripts/SiteEditor.cs" Line="15" Column="25" />
-      <File FileName="Assets/Scripts/DragKeyword.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/DropArea.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/ScenarioManager.cs" />
+      <File FileName="Assets/StreamingAssets/sample_scenarios.json" Line="93" Column="18" IsPinned="True" />
+      <File FileName="Assets/Scripts/GameData.cs" Line="27" Column="47" />
+      <File FileName="Assets/Scripts/SceneLoader.cs" Line="18" Column="55" />
+      <File FileName="Assets/Scripts/SiteEditor.cs" Line="43" Column="30" />
+      <File FileName="Assets/Scripts/ScenarioManager.cs" Line="5" Column="1" />
       <File FileName="Assets/Scripts/GameTimer.cs" />
-      <File FileName="Assets/Scripts/KeywordData.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/KeywordData.cs" />
       <File FileName="Assets/Scripts/SEOScenario.cs" Line="1" Column="1" />
-      <File FileName="Assets/StreamingAssets/sample_scenarios.json" Line="102" Column="11" />
-      <File FileName="Assets/Scripts/JsonScenarioLoader.cs" />
-      <File FileName="Assets/Scripts/InfoPanelController.cs" Line="39" Column="2" />
-      <File FileName="Assets/StreamingAssets/seo_info.json" Line="28" Column="2" />
-      <File FileName="Assets/Scripts/InfoDataLoader.cs" Line="47" Column="2" />
-      <File FileName="Assets/Scripts/PageSwiper.cs" Line="70" Column="2" />
+      <File FileName="Assets/Scripts/JsonScenarioLoader.cs" Line="32" Column="32" />
+      <File FileName="Assets/Scripts/InfoPanelController.cs" Line="32" Column="1" />
+      <File FileName="Assets/StreamingAssets/seo_info.json" Line="2" Column="3" />
+      <File FileName="Assets/Scripts/InfoDataLoader.cs" />
+      <File FileName="Assets/Scripts/OfficeSlotDisplay.cs" Line="39" Column="6" />
+      <File FileName="Assets/Scripts/GameManager.cs" Line="137" Column="48" />
+      <File FileName="Assets/Scripts/ScorePanelDisplay.cs" Line="36" Column="6" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -30,16 +25,21 @@
               <Node name="ScriptableObjects" expanded="True">
                 <Node name="Scenarios" expanded="True" />
               </Node>
-              <Node name="Scripts" expanded="True">
-                <Node name="DropArea.cs" selected="True" />
+              <Node name="Scripts" expanded="True" />
+              <Node name="StreamingAssets" expanded="True">
+                <Node name="seo_info.json" selected="True" />
               </Node>
-              <Node name="StreamingAssets" expanded="True" />
             </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="87f82f79-c312-47dc-983e-5b3afdf5fcca" />
   <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
 </Properties>

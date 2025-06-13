@@ -8,16 +8,16 @@ public class ScorePanelDisplay : MonoBehaviour
 
     private void OnEnable()
     {
-        // Round sonuçlarını panele yaz
+        // Her roundun sadece kazananını göster
         for (int i = 0; i < roundTexts.Length; i++)
         {
             if (i < GameData.roundResults.Length && !string.IsNullOrEmpty(GameData.roundResults[i]))
             {
-                roundTexts[i].text = GameData.roundResults[i];
+                roundTexts[i].text = GameData.roundResults[i]; // Sadece "Player 1" veya "Player 2"
             }
             else
             {
-                roundTexts[i].text = $"Round {i + 1}: -";
+                roundTexts[i].text = "-";
             }
         }
 
@@ -41,11 +41,11 @@ public class ScorePanelDisplay : MonoBehaviour
         {
             if (i < GameData.roundResults.Length && !string.IsNullOrEmpty(GameData.roundResults[i]))
             {
-                roundTexts[i].text = GameData.roundResults[i];
+                roundTexts[i].text = GameData.roundResults[i]; // Sadece "Player 1" veya "Player 2"
             }
             else
             {
-                roundTexts[i].text = $"Round {i + 1}: -";
+                roundTexts[i].text = "-";
             }
         }
     }

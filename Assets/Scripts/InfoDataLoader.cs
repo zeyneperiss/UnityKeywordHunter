@@ -37,11 +37,11 @@ public class InfoDataLoader : MonoBehaviour
                 pageBodies[i].text = data.pages[i].body;
             }
 
-            Debug.Log("✅ InfoData başarıyla yüklendi.");
+            Debug.Log(" InfoData başarıyla yüklendi.");
         }
         else
         {
-            Debug.LogError("❌ seo_info.json bulunamadı! Yol: " + path);
+            Debug.LogError(" seo_info.json bulunamadı! Yol: " + path);
         }
     }
 }

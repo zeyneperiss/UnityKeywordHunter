@@ -22,17 +22,17 @@ public class SceneLoader : MonoBehaviour
             {
                 used.Clear();
                 available = new List<SEOScenario>(all);
-                Debug.Log("🔁 Senaryo havuzu sıfırlandı.");
+                Debug.Log(" Senaryo havuzu sıfırlandı.");
             }
 
-            // Seç
+            
             SEOScenario selected = available[Random.Range(0, available.Count)];
 
-            // A mı oynuyor, B mi?
+            // player 1  mi oynuyor, player 2 mi?
             if (GameData.siteAIsPlaying)
             {
                 GameData.siteAScenario = selected;
-                Debug.Log("🎯 Site A senaryosu: " + selected.title);
+                Debug.Log(" Player 1  senaryosu: " + selected.title);
             }
             else
             {
@@ -43,7 +43,7 @@ public class SceneLoader : MonoBehaviour
                 }
 
                 GameData.siteBScenario = selected;
-                Debug.Log("🎯 Site B senaryosu: " + selected.title);
+                Debug.Log(" Player 2 senaryosu: " + selected.title);
             }
 
             used.Add(selected); // seçilen senaryoyu listeye ekle

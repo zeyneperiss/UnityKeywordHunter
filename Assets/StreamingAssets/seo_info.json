@@ -1,28 +1,28 @@
 {
     "pages": [
         {
-            "title": "SEO nedir?",
-            "body": "SEO (Arama Motoru Optimizasyonu), bir web sitesinin arama motorlarında daha üst sıralarda görünmesini sağlamak için yapılan çalışmalardır."
+            "title": "SEO Nedir?",
+            "body": "Bir web sitesinin arama motorlarında daha üst sıralarda görünmesini sağlamak için yapılan düzenlemelerdir."
         },
         {
-            "title": "Başlık Alanı",
-            "body": "Başlıklar, arama motorlarının ilk incelediği alanlardır. Anahtar kelime mutlaka başlıkta geçmelidir."
+            "title": "Title Info (Başlık Alanı)",
+            "body": "Arama motorlarında görünen en önemli metindir. Sayfanın konusunu özetler ve anahtar kelime içermesi gerekir."
         },
         {
-            "title": "Meta Açıklama",
-            "body": "Meta açıklama, arama sonuçlarında görünen tanıtıcı metindir. Anahtar kelime içerdiğinde tıklanma oranı artar."
+            "title": "MetaInfo (Meta Açıklama)",
+            "body": "Arama sonuçlarında görünen kısa açıklamadır. Tıklanma oranını etkiler. Anlamlı ve cezbedici olmalıdır."
         },
         {
-            "title": "H1 Başlığı",
-            "body": "Sayfanın ana başlığı olan H1 etiketi, SEO açısından çok kritiktir. Anahtar kelime burada mutlaka geçmelidir."
+            "title": "H1 Info (H1 Başlığı)",
+            "body": "İçerikteki en önemli başlıktır. Sayfa konusunu açıklar. Sadece bir adet kullanılmalı ve anahtar kelime içermelidir."
         },
         {
-            "title": "İçerik Alanı",
-            "body": "Kaliteli ve özgün içerik, SEO başarısının temelidir. Anahtar kelimeler doğal akışta yer almalıdır."
+            "title": "Content Info (İçerik Alanı)",
+            "body": "İçerik bilgisidir. Doğru anahtar kelimelerle, doğal bir dilde yazılmalı ve kullanıcıya değer sunmalıdır."
         },
         {
-            "title": "Alt Metin (Alt Text)",
-            "body": "Görsellere eklenen alt metinler, görsel aramalarda çıkmanı sağlar. Anahtar kelime burada da kullanılmalıdır."
+            "title": "altText Info (Alt Metin)",
+            "body": "Görsel SEO bölümüne aittir. Görselin ne anlattığını tarif etmeli ve gerekirse anahtar kelime içermelidir."
         }
     ]
 }
